@@ -63,7 +63,7 @@
       // function to validate user input
       function textTester() {
         console.log("Validating user input: ", document.tester.inputText.value);
-        const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 
         if (document.tester.inputText.value.trim() == "") {
           // Removes whitespace and checks if empty
@@ -71,7 +71,7 @@
           return false;
         }
 
-        if (validationRegex.test(document.tester.inputText.value)) {
+        if (validation.test(document.tester.inputText.value)) {
           alert("ok");
           return false;
         }
