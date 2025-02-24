@@ -1,0 +1,90 @@
+<!-- Bruce Reyes -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Linking to style sheet-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+
+  <body>
+    <header>
+      <h1 id="pageHeader">Bruce Reyes INST377 - Lab 4</h1>
+    </header>
+
+    <!--Alert Me-->
+    <form id="actions" name="alerter" onsubmit="return alertMe()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required />
+      <input type="submit" value="Alert Me!" />
+    </form>
+
+    <!--Color Changer-->
+    <button id="actions" onclick="changeColor()">Change Color</button>
+
+    <!--Text Tester-->
+    <form id="actions" name="tester" onsubmit="return textTester()">
+      <label for="inputText">Text Tester:</label>
+      <input type="text" id="inputText" />
+      <input type="submit" value="Validate Text" />
+    </form>
+
+    <!--Add Text-->
+    <button id="actions" onclick="addText()">Add Text</button>
+
+    <!--Javascript Code-->
+    <!--I tried making it so that this is in ajs file, it would not work, i kept it here -->
+    <script type="text/javascript">
+
+      //function to alert user inputted name
+      function alertMe() {
+        console.log(
+          "Alerting user inputted name: ",
+          document.alerter.name.value
+        );
+        alert("Hello " + document.alerter.name.value + "!");
+      }
+
+      //function to change background color
+      function changeColor() {
+        console.log("Changing background color");
+
+        if (document.body.style.backgroundColor == "pink") {
+          document.body.style.backgroundColor = "purple";
+        } else {
+          document.body.style.backgroundColor = "pink";
+        }
+
+        console.log(
+          "Successfully changed, current background color is: ",
+          document.body.style.backgroundColor
+        );
+      }
+
+      // function to validate user input
+ // function to validate user input
+      function textTester() {
+        var input = document.tester.inputText.value;
+        console.log("Validating user input:", input);
+        const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        if (input.trim() === "") {
+          alert("Bruh you have to enter text");
+          return false;
+        }
+        if (validation.test(input)) {
+          alert("You have special characters, that's a no no silly");
+          return false;
+        } else {
+          alert("Good job, you entered valid text");
+          return false;
+        }
+      }
+
+      //adding text to header
+      function addText() {
+        console.log("Adding text to header");
+        document.getElementById("pageHeader").textContent =
+          "Bruce Reyes INST377 - Lab 4 - WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO";
+      }
+    </script>
+  </body>
+</html>
