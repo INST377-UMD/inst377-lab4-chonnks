@@ -61,18 +61,20 @@
       }
 
       // function to validate user input
+ // function to validate user input
       function textTester() {
-        console.log("Validating user input: ", document.tester.inputText.value);
+        var input = document.tester.inputText.value;
+        console.log("Validating user input:", input);
         const validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-
-        if (document.tester.inputText.value.trim() == "") {
-          // Removes whitespace and checks if empty
-          alert("ok");
+        if (input.trim() === "") {
+          alert("Bruh you have to enter text");
           return false;
         }
-
-        if (validation.test(document.tester.inputText.value)) {
-          alert("ok");
+        if (validation.test(input)) {
+          alert("You have special characters, that's a no no silly");
+          return false;
+        } else {
+          alert("Good job, you entered valid text");
           return false;
         }
       }
